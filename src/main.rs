@@ -102,7 +102,7 @@ impl State {
 
     fn execute_command(&mut self, command: Command) {
         if self.current_pane_is_vim() {
-            write_chars(&self.command_to_keybind(&command));
+            write(self.command_to_keybind(&command).into_bytes());
             return;
         }
 
@@ -175,10 +175,10 @@ fn term_command_from_client_list(cl: String) -> Option<String> {
 
 fn ctrl_keybinding(direction: &Direction) -> String {
     let direction = match direction {
-        Direction::Left => "\u{0008}",
-        Direction::Right => "\u{000C}",
-        Direction::Up => "\u{000B}",
-        Direction::Down => "\u{000A}",
+        Direction::Left => "\x1B[108;5u",
+        Direction::Right => "\x1B[104;5u",
+        Direction::Up => "\x1B[107;5u",
+        Direction::Down => "\x1B[106;5u",
     };
     direction.to_string()
 }

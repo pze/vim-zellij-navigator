@@ -218,7 +218,7 @@ dependencies = [
  "futures-io",
  "futures-lite 2.3.0",
  "parking",
- "polling 3.7.1",
+ "polling 3.7.2",
  "rustix 0.38.34",
  "slab",
  "tracing",
@@ -1268,6 +1268,12 @@ name = "hermit-abi"
 version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d231dfb89cfffdbc30e7fc41579ed6066ad03abda9e567ccafae602b97ec5024"
+
+[[package]]
+name = "hermit-abi"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fbf6a919d6cf397374f7dfeeea91d974c7c0a7221d0d0f4f20d859d329e53fcc"
 
 [[package]]
 name = "hex"
@@ -2378,13 +2384,13 @@ dependencies = [
 
 [[package]]
 name = "polling"
-version = "3.7.1"
+version = "3.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e6a007746f34ed64099e88783b0ae369eaa3da6392868ba262e2af9b8fbaea1"
+checksum = "a3ed00ed3fbf728b5816498ecd316d1716eecaced9c0c8d2c5a6740ca214985b"
 dependencies = [
  "cfg-if",
  "concurrent-queue",
- "hermit-abi 0.3.9",
+ "hermit-abi 0.4.0",
  "pin-project-lite",
  "rustix 0.38.34",
  "tracing",
@@ -4029,7 +4035,7 @@ dependencies = [
 [[package]]
 name = "zellij-tile"
 version = "0.41.0"
-source = "git+https://github.com/zellij-org/zellij.git?branch=main#2ac8b151915958782efa4f5714f5253e983613c5"
+source = "git+https://github.com/zellij-org/zellij.git?branch=main#91cf59383672a797414ed5b68a740a6df689ac05"
 dependencies = [
  "clap",
  "serde",
@@ -4042,7 +4048,7 @@ dependencies = [
 [[package]]
 name = "zellij-utils"
 version = "0.41.0"
-source = "git+https://github.com/zellij-org/zellij.git?branch=main#2ac8b151915958782efa4f5714f5253e983613c5"
+source = "git+https://github.com/zellij-org/zellij.git?branch=main#91cf59383672a797414ed5b68a740a6df689ac05"
 dependencies = [
  "anyhow",
  "async-channel 1.9.0",

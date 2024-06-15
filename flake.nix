@@ -2,7 +2,7 @@
   description = "vim-zellij-navigator";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=24.05";
     flake-utils.url = "github:numtide/flake-utils";
     fenix.url = "github:nix-community/fenix";
     fenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +20,7 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {
         inherit system;
+        overlays = [fenix.overlays.default];
       };
       supportedPlatforms = {
         aarch64-darwin = {
@@ -41,6 +42,8 @@
         combine [
           stable.cargo
           stable.rustc
+          stable.clippy
+          stable.rustfmt
           targets.${rustTarget}.stable.rust-std
           targets.wasm32-wasi.stable.rust-std
         ];
@@ -60,7 +63,7 @@
       };
       devShells.default = pkgs.mkShell {
         buildInputs = buildInputs;
-        packages = [rust-toolchain pkgs.pkg-config];
+        nativeBuildInputs = [rust-toolchain pkgs.rust-analyzer-nightly pkgs.pkg-config];
       };
     });
 }
